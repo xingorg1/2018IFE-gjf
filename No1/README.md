@@ -59,7 +59,7 @@ transition-delay | 是否延迟执行过渡 | 否 | 不填写时默认为0
 可填的值 | 讲解 | 备注
 ------- | ---- | ----
 none | none | 我不设置transition好不好？
-all | 代表所有的属性都会又 | 有时候你要监听好几个属性值，又很懒不想一个一个写，那就写个all，监听所有。我不知道这个对性能有什么影响，不过估计浏览器没那么智能，不是谁变化监听谁，而是费劲巴拉的监听所有，没有变化的也被监听了，虽然我们肉眼上看不到，但其实他也消耗了。
+all | 代表所有的属性都会有 | 有时候你要监听好几个属性值，又很懒不想一个一个写，那就写个all，监听所有。我不知道这个对性能有什么影响，不过估计浏览器没那么智能，不是谁变化监听谁，而是费劲巴拉的监听所有，没有变化的也被监听了，虽然我们肉眼上看不到，但其实他也消耗了。
 property-name-list | 正常写，比如宽度就写width，高度写height，就把css属性名直接复制粘贴过来即可 | 注意这里加了一个list，是一个属性列表，可以写多个，多个之间用都好隔开就好
 
 * js里的写法：
@@ -94,7 +94,37 @@ obj.style.transitionDuration = '3.5s';
 
 **transition-timing-function**需要交代给你的那些事
 
-* 
+* 规定过渡效果的速度曲线，是先快后慢？还是先慢再快最后慢？还是匀速从头开到尾呢？这就对应了他的属性值ease-out、ease-in-out、linear。
+
+* 原理就是:过渡效果随着时间改变其速度。
+
+* 当然你也可以自定义动画曲线：cubic-bezier(n,n,n,n)。就是大名鼎鼎的贝塞尔曲线啦。又好像animate的帧一样，时间开头怎么样动，时间结尾怎么样动，不过他还是时间大范围内的凭感觉控制，没有animation的帧动画强大，只要你愿意，可以把animation当作flash的工作台来用哦！
+
+* 各属性值含义
+
+值 | 效果描述 | 备注
+-- | ------- | ----
+linear | 匀速 | 一开始挂上档后可以睡觉了，直到终点不会变档
+ease | 默认值 慢-快-慢 | 曲线图就像一座山丘
+ease-in | 慢-end | 像一个自行车子启动的一瞬间，刚开始蹬不动都是慢慢走，后边匀速
+ease-out | start-慢 | 像一个车子刹车的一瞬间
+ease-in-out | 慢-o-慢 | 更自然的一个车子发动-走动-刹车停住的过程
+cubic-bezier(n,n,n,n) | 自己调曲线决定动画的效果随时间变化是快还是慢 | 0-1的可调范围，别过了
+
+cubic-bezier四个值设置成什么样刚好是其他五个值的效果呢？
+
+值 | bezier配置
+-- | ---------
+linear | cubic-bezier(0,0,0.25,1)
+ease | cubic-bezier(0.25,0.1,0.25,1)
+ease-in | cubic-bezier(0.42,0,1,1)
+ease-out | cubic-bezier(0,0,0.58,1)
+ease-in-out | cubic-bezier(0.42,0,0.58,1)
+
+* js写法：
+  ```js
+    object.style.transitionTimingFunction="linear"
+  ```
 
 **transition-delay**需要交代给你的那些事
 
@@ -147,7 +177,12 @@ object.style.transitionDelay="2s"
   -ms-transition: -ms-transform 1s;
   -o-transition: -o-transform 1s;
   ```
-  多个transition属性分开写时，添加兼容性前缀的方法同上，不再赘述。
+  **多个transition属性分开写时，添加兼容性前缀的方法同上，不再赘述。顺序是：正常；-moz-、-webkit-、-ms-、-0-！**
+
 ### 4. 贝塞尔曲线
+**[cubic-bezier](https://baike.sogou.com/v403429.htm?fromTitle=%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF)(n,n,n,n)**
+
+四个点（起始点、终止点以及两个相互分离的中间点）
+
 ## transform学习笔记
 ## animation学习笔记
