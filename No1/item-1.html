@@ -12,11 +12,13 @@
       text-align: center;
       border-top: 2px solid #eee;
     }
-    p{
+
+    p {
       text-align: left;
       color: #666;
       font-size: 12px;
     }
+
     .box {
       width: 200px;
       margin: 0 auto;
@@ -62,11 +64,13 @@
     }
 
     /* 动画时改变的样式 */
+
     .ani-add,
     .ani-add2 {
       /* 改变文字颜色 */
       color: #5689ff;
     }
+
     .ani-add .line,
     .ani-add2::after {
       /* 如果不在线上定宽，则需要在ani盒子上定宽，然后这里百分百自适应。*/
@@ -100,10 +104,10 @@
       <span>展示样式</span>
       <p class="line"></p>
     </div>
-    <span id="btn" class="btn">
-      切换样式
-    </span>
-    <p>点击事件改变div盒子的类名->类名改变关键样式（如width值）->transition监听样式值变化 = 形成动画</p>
+    <span id="btn" class="btn">切换样式</span>
+    <p>
+      点击事件改变div盒子的类名->类名改变关键样式（如width值）->transition监听样式值变化 = 形成动画
+    </p>
   </div>
   <script>
     changeClass({
@@ -120,7 +124,9 @@
       展示样式
     </div>
     <span id="btn2" class="btn">切换样式</span>
-    <p>此种方式，减少了一个空的p标签的使用</p>
+    <p>
+      此种方式，减少了一个空的p标签的使用
+    </p>
   </div>
   <script>
     changeClass({
@@ -130,10 +136,6 @@
       class2: 'ani ani2'
     });
   </script>
-
-
-
-
 </body>
 
 </html>
