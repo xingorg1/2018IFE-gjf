@@ -24,7 +24,7 @@
 
 * 主要核心是通过 **js事件切换盒子类名** 来实现
 
-### 效果实现
+### 效果思路
 **问题：**
 怎么让下划线在中间向两遍展开再从两遍收缩？
 
@@ -122,9 +122,9 @@ ease-out | cubic-bezier(0,0,0.58,1)
 ease-in-out | cubic-bezier(0.42,0,0.58,1)
 
 * js写法：
-  ```js
-    object.style.transitionTimingFunction="linear"
-  ```
+```js
+  object.style.transitionTimingFunction="linear"
+```
 
 **transition-delay**需要交代给你的那些事
 
@@ -137,7 +137,7 @@ ease-in-out | cubic-bezier(0.42,0,0.58,1)
 object.style.transitionDelay="2s"
 ```
 
-**懒人写法**
+--------- **懒人写法** ----------
 
 **单个属性** 简写写法：
 ```
