@@ -18,7 +18,7 @@
 ## transition学习笔记
 ### 1. CSS transition 
 
-**css3过渡** ：用于当元素 **从一种样式变换为另一种样式** 时为元素添加效果。
+**transition过渡** ：用于当元素 **从一种样式变换为另一种样式** 时为元素添加效果。
 
 ### 2. transition的各项子属性详细值
 
@@ -171,39 +171,46 @@ object.style.transitionDelay="2s"
 
 但是如果配合上transition/animation，他就会从一个形状变成另一形状。只要有一段时间内的过渡效果，就形成了动画。
 
-**主要功能有**：拉伸变形、位移、缩放、旋转。
+**主要功能有**：拉伸变形、倾斜、位移、缩放、旋转。
 
-**原理是**：改变元素的尺寸、形状、角度、位置。
+**原理是**：改变元素的尺寸、形状、角度、位置等
 
+js写法：
+```js
+  object.style.transform="rotate(7deg)"
+```
 ### transform-origin 设置元素的基点位置
 
-
-
-### transform的各个属性值
+### transform的各个方法属性
 
 name | 含义 
 ---- | ---- 
+none | 我不定义好不好
 translate() | 位移
 rotate() | 旋转
 scale() | 缩放 
 skew() | 翻转/拉伸变形
 matrix() | 混合, 集百家之大乘。
 
-### 属性值可能的配置
-**translate：相对于当前位置向水平(x)/垂直(y)方向移动，正值向右/下，负值向左/上**
+### 方法可能的配置
+**translate(x,y)：相对于当前位置向水平(x)/垂直(y)方向移动，正值向右/下，负值向左/上**
 
-name | 含义 | 备注
----- | ---- | ----
-translate(x,y) | 位移 | 
-中心点 | 
+D | name | 含义 | 中心点 | 备注
+--- | ---- | ---- | ---- | ----
+2D | translate(x,y) | 2d两点位移 |  |  
+2D | translateX(x) | 只是用 X 轴的值位移 |  |  
+2D | translateY(y) | 只是用 Y 轴的值位移 |  |  
+3D | translate3d(x,y,z) | 3d三点位移 |  |  
+3D | translateZ(z) | 只是用 Z 轴的值位移 |  | 
+
+括号里边， **数值后边一定要有单位值** ，如果没有单位值不起作用
 
 **rotate：N°旋转，正值顺时针旋转，赋值逆时针旋转。**
 
-name | 含义 | 备注
----- | ---- | ----
-rotate(0deg) | 2D旋转 | 
-rotateX/rotateY(0deg) | 3D旋转 | N°旋转，X围绕x轴做水平方向翻转，Y围绕y轴做垂直方向翻转
-中心点 | 
+D | name | 含义 | 中心点 | 备注
+--| ---- | ---- | ---- | -----
+2D | rotate(0deg) | 旋转 |  | angle值
+3D | rotateX/rotateY(0deg) | N°旋转 |  | X围绕x轴做水平方向翻转，Y围绕y轴做垂直方向翻转
 
 **scale：x对应宽度，y对应高度，缩放到原来宽高的倍数。**
 
@@ -219,7 +226,7 @@ name | 含义 | 备注
 skew(xdeg,ydeg) | 翻转/拉伸变形 | 
 中心点 | 
  
-**matrix**
+**matrix(n,n,n,n,n,n)**
 
 name | 含义 | 备注
 ---- | ---- | ----
@@ -228,12 +235,14 @@ rotate(0deg) | 2D旋转 | N°旋转，正值顺时针旋转，赋值逆时针旋
 rotateX/rotateY(0deg) | 3D旋转 | N°旋转，X围绕x轴做水平方向翻转，Y围绕y轴做垂直方向翻转
 scale(x,y) | 缩放 | x对应宽度，y对应高度，缩放到原来宽高的倍数。
 skew(xdeg,ydeg) | 翻转/拉伸变形 | 翻转给定的角度，xdeg水平翻转度数，ydeg垂直翻转度数。不能为负？
-matrix | 混合 | 
+matrix | 矩阵，模型 | 
 中心点 | 
  
 ### 兼容性及写法
 > IE10+以上不用想，其他现代浏览器
+
 > chrome、safari要加前缀-webkit-
+
 > ie9加前缀-ms-
 
 **前缀**
