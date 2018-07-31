@@ -181,6 +181,8 @@ js写法：
 ```
 ### transform-origin 设置元素的基点位置
 该元素允许改变被转换元素的位置
+
+默认不设置的情况下，x轴坐标是(border-width + padding + width) / 2 + 'px'，第二个坐标是(border-width + padding +height) / 2 + 'px';
 ### transform-style 被嵌套元素在3D空间如何显示
 
 ### transform的各个方法属性
@@ -195,53 +197,53 @@ skew() | 拉伸变形
 matrix() | 混合, 集百家之大乘。
 
 ### 方法可能的配置
-**translate(x,y)：相对于当前位置向水平(x)/垂直(y)方向移动，正值向右/下，负值向左/上**
-
-D | name | 含义 | 中心点 | 备注
---- | ---- | ---- | ---- | ----
-2 | translate(x,y) | 2d两点位移 |  |  
-3D | translate3d(x,y,z) | 3d三点位移 |  |  
-2 | translateX(x) | 只是用 X 轴的值位移 |  |  
-2 | translateY(y) | 只是用 Y 轴的值位移 |  |  
-3D | translateZ(z) | 只是用 Z 轴的值位移 |  | 
-
-括号里边， **数值后边一定要有单位值** ，如果没有单位值不起作用
-
-**rotate：N°旋转，正值顺时针旋转，赋值逆时针旋转。**
+**skew：翻转给定的角度，xdeg水平翻转度数，ydeg垂直翻转度数。不能为负？**
 
 D | name | 含义 | 中心点 | 备注
 --| ---- | ---- | ---- | -----
-2 | rotate(0deg) | 旋转 |  | angle值
-3D | rotate3d(x,y,z,angle) | N°旋转 |  | 
-3D | rotateX(0deg) | N°旋转 |  | 围绕x轴做水平方向翻转
-3D | rotateY(0deg) | N°旋转 |  | 围绕y轴做垂直方向翻转
-3D | rotateZ(0deg) | N°旋转 |  | 
+2 | skew(xdeg,ydeg) | 拉伸变形 | 默认中心点就是盒模型的中心点 | 
+2 | skewX(xdeg) | 拉伸变形 | 同上 | 
+2 | skewY(ydeg) | 拉伸变形 | 同上 | 
 
 **scale：x对应宽度，y对应高度，缩放到原来宽高的倍数。**
 
 D | name | 含义 | 中心点 | 备注
 --| ---- | ---- | ---- | -----
-2 | scale(x,y) | 缩放 |  | 
-3D | scale3d(x,y,z) | 缩放 |  | 
-2 | scaleX(x) | 缩放 |  | 
-2 | scaleY(y) | 缩放 |  | 
-3D | scaleZ(z) | 缩放 |  | 
+2 | scale(x,y) | 缩放 | 默认中心点就是盒模型的中心点 | 
+3D | scale3d(x,y,z) | 缩放 | 同上 | 
+2 | scaleX(x) | 缩放 | 同上 | 
+2 | scaleY(y) | 缩放 | 同上 | 
+3D | scaleZ(z) | 缩放 | 同上 | 
 
- 
-**skew：翻转给定的角度，xdeg水平翻转度数，ydeg垂直翻转度数。不能为负？**
+**rotate：N°旋转，正值顺时针旋转，赋值逆时针旋转。**
 
 D | name | 含义 | 中心点 | 备注
 --| ---- | ---- | ---- | -----
-2 | skew(xdeg,ydeg) | 拉伸变形 |  | 
-2 | skewX(xdeg) | 拉伸变形 |  | 
-2 | skewY(ydeg) | 拉伸变形 |  | 
- 
+2 | rotate(0deg) | 旋转 | 默认中心点就是盒模型的中心点 | angle值
+3D | rotate3d(x,y,z,angle) | N°旋转 | 同上 | 
+3D | rotateX(0deg) | N°旋转 | 同上 | 围绕x轴做水平方向翻转
+3D | rotateY(0deg) | N°旋转 | 同上 | 围绕y轴做垂直方向翻转
+3D | rotateZ(0deg) | N°旋转 | 同上 | 
+
+**translate(x,y)：相对于当前位置向水平(x)/垂直(y)方向移动，正值向右/下，负值向左/上**
+
+D | name | 含义 | 中心点 | 备注
+--- | ---- | ---- | ---- | ----
+2 | translate(x,y) | 2d两点位移 | 默认中心点就是盒模型的中心点 |  
+3D | translate3d(x,y,z) | 3d三点位移 | 同上 |  
+2 | translateX(x) | 只是用 X 轴的值位移 | 同上 |  
+2 | translateY(y) | 只是用 Y 轴的值位移 | 同上 |  
+3D | translateZ(z) | 只是用 Z 轴的值位移 | 同上 | 
+
+括号里边， **数值后边一定要有单位值** ，如果没有单位值不起作用
+
 **matrix(n,n,n,n,n,n)**
 
 D | name | 含义 | 中心点 | 备注
 --| ---- | ---- | ---- | -----
-2 | matrix(n,n,n,n,n,n) | 矩阵，模型 |  | 6个值的矩阵
-3D | matrix(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) | 矩阵，模型 |  | 16个值,4x4矩阵
+2 | matrix(n,n,n,n,n,n) | 矩阵，模型 | 默认中心点就是盒模型的中心点 | 6个值的矩阵
+3D | matrix(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) | 矩阵，模型 | 同上 | 16个值,4x4矩阵
+
 
 **perspective(n) 为3D转换元素设置透视视图** 
 **perspective-origin 规定3D元素的底部位置** 
@@ -257,7 +259,11 @@ D | name | 含义 | 中心点 | 备注
 **前缀**
 
 ```css
-
+transform: ;
+-moz-transform: ;
+-webkit-transform: ;
+-ms-transform: ;
+-o-transform: ;
 ```
 
 ## animation学习笔记
