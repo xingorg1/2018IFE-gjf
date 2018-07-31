@@ -5,8 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>优秀的 CSS 交互动效练习</title>
+  <style>
+    .box,.icon,.btn{
+      display: inline-block;
+      vertical-align: middle;
+      transition: all .35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .box{
+      padding: 10px 20px;
+      color: #fff;
+      background: #2aca76;
+      border-radius: 4px;
+    }
+    .icon{
+      /* display: none; */
+      opacity: 0;
+      position: absolute;
+      margin-left: 0px;
+      margin-top: -4px;
+      width: 30px;
+      height: 30px;
+      background: url('loading.gif') no-repeat;
+    }
+    .expand-left{
+      padding-left: 50px;
+    }
+    .expand-left .icon-loading{
+      opacity: 1;
+      margin-left: -40px;
+      margin-top: -4px;
+      /* display: inline-block; */
+    }
+  </style>
 </head>
 <body>
-  <div></div>
+  <div id="btn" class="box">
+    <i class="icon icon-loading"></i>
+    <span class="btn">Submit</span>
+  </div>
+  <script>
+    var btn = document.getElementById('btn'),
+    init = true;
+    btn.onclick = function() {
+      if(init){
+        this.className = "box expand-left"
+        init = false;
+      }else{
+        this.className = "box"
+        init = true;
+      }
+    }
+  </script>
 </body>
 </html>
