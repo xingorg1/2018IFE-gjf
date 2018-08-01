@@ -161,6 +161,8 @@ object.style.transitionDelay="2s"
 ### 4. 贝塞尔曲线
 **[cubic-bezier](https://baike.sogou.com/v403429.htm?fromTitle=%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF)(n,n,n,n)**
 
+**[css3-beziercurve](http://www.css3beziercurve.net/)**
+
 四个点（起始点、终止点以及两个相互分离的中间点）
 
 ## transform学习笔记
@@ -250,6 +252,8 @@ D | name | 含义 | 中心点 | 备注
 
 括号里边， **数值后边一定要有单位值** ，如果没有单位值不起作用
 
+translate执行的位移，对于周围的元素不产生任何影响。就像relative的效果。
+
 **matrix(n,n,n,n,n,n)**
 
 D | name | 含义 | 中心点 | 备注
@@ -261,6 +265,12 @@ D | name | 含义 | 中心点 | 备注
 **perspective(n) 为3D转换元素设置透视视图** 
 **perspective-origin 规定3D元素的底部位置** 
 **perspective-visibility 定义元素在不面对屏幕时是否可见** 
+### 混合写法
+多个属性值之间用逗号隔开即可。
+```css
+transform: rotate(30deg) scale(.2) skew(20deg);
+
+```
 
 ### 兼容性及写法
 > IE10+以上不用想，其他现代浏览器
