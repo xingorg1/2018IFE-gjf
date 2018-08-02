@@ -261,7 +261,8 @@ D | name | 含义 | 中心点 | 备注
 2 | matrix(n,n,n,n,n,n) | 矩阵，模型 | 默认中心点就是盒模型的中心点 | 6个值的矩阵
 3D | matrix(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) | 矩阵，模型 | 同上 | 16个值,4x4矩阵
 
-
+### perspective 规定3D元素的透视效果
+https://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/comment-page-7/#comment-385481
 **perspective(n) 为3D转换元素设置透视视图** 
 **perspective-origin 规定3D元素的底部位置** 
 **perspective-visibility 定义元素在不面对屏幕时是否可见** 

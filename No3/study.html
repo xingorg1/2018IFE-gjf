@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>练习画小猫</title>
+  <meta name="description" content="练习画小猫">
+  <title>小猫</title>
+  <link rel="stylesheet" href="study.css">
 </head>
+
 <body>
   <div class="container">
+    <!-- 耳朵 -->
+    <div class="ear clearfix">
+      <div class="ear-petal left"></div>
+      <div class="ear-petal right"></div>
+    </div>
+    <!-- 脸 -->
     <div class="face">
-      <div class="ear">
-        <div class="ear-petal left"></div>
-        <div class="ear-petal right"></div>
-      </div>
+      <!-- 花纹 -->
       <div class="mark"></div>
+      <!-- 眼 -->
       <div class="eye">
-        <div class="eye-bead left"></div>
-        <div class="eye-bead right"></div>
+        <div class="eye-bead left">
+          <!-- 上下眼睑和眼珠 -->
+          <div class="palpebra palpebra-top"></div>
+          <div class="eyeball"></div>
+          <div class="palpebra palpebra-bottom"></div>
+        </div>
+        <div class="eye-bead right">
+          <!-- 上下眼睑和眼珠 -->
+          <div class="palpebra palpebra-top"></div>
+          <div class="eyeball"></div>
+          <div class="palpebra palpebra-bottom"></div>
+        </div>
       </div>
+      <!-- 鼻子 -->
       <div class="nose">
         <div class="nose-dot"></div>
         <div class="nose-lines left">
@@ -31,6 +50,7 @@
           <div class="nose-line line6"></div>
         </div>
       </div>
+      <!-- 嘴巴 -->
       <div class="mouth">
         <div class="mouth-bead left"></div>
         <div class="mouth-bead right"></div>
@@ -38,4 +58,5 @@
     </div>
   </div>
 </body>
+
 </html>
