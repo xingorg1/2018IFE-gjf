@@ -9,22 +9,36 @@
     .box{
       margin: 0 auto;
       display: inline-block;
+      margin: 150px;
     }
     img{
-
+      font-size: 0;
     }
-    .img1{
-
+    .img1,.img2{
+      transition: all 3s;
     }
     .img2{
-      transform: perspective(327px) rotateY(62deg)
+      margin-left: -50%;
+      transform: rotateY(-80deg);
+    }
+    .box:hover{
+      cursor: pointer;
+    }
+    .box:hover .img1{
+      transform: perspective(500px) rotateY(80deg);
+    }
+    .box:hover .img2{
+      /* transform: rotateY(90deg); */
+      transform: perspective(500px) rotateY(0deg);
+      transition-delay: .15s;
     }
   </style>
 </head>
 <body>
+
   <div class="box">
-    <img src="img1.jpg" alt="" class="img1" />
-    <img src="img2.jpg" alt="" class="img2" />
+    <img src="img1.jpg" alt="" class="img1">
+    <!-- <img src="img2.jpg" alt="" class="img2" /> -->
   </div>
 </body>
 </html>
