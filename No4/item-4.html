@@ -20,27 +20,59 @@
     }
     .img1,.img2{
       position: absolute;
-      transition: all .3s cubic-bezier(0.4, 0, 1, 1)
+      -webkit-transition: all .3s cubic-bezier(0.4, 0, 1, 1);
+      -moz-transition: all .3s cubic-bezier(0.4, 0, 1, 1);
+      -ms-transition: all .3s cubic-bezier(0.4, 0, 1, 1);
+      -o-transition: all .3s cubic-bezier(0.4, 0, 1, 1);
+      transition: all .3s cubic-bezier(0.4, 0, 1, 1);
       /* cubic-bezier(0.4, 0, 1, 1); */
       /* ,opacity .01s linear .29s */
     }
     .img2{
+      -webkit-transform: perspective(500px) rotateY(-90deg);
+      -moz-transform: perspective(500px) rotateY(-90deg);
+      -ms-transform: perspective(500px) rotateY(-90deg);
+      -o-transform: perspective(500px) rotateY(-90deg);
       transform: perspective(500px) rotateY(-90deg);
     }
     .img1{
+      -webkit-transform: perspective(500px) rotateY(0deg);
+      -moz-transform: perspective(500px) rotateY(0deg);
+      -ms-transform: perspective(500px) rotateY(0deg);
+      -o-transform: perspective(500px) rotateY(0deg);
       transform: perspective(500px) rotateY(0deg);
+      -webkit-transition-delay: .25s;
+      -moz-transition-delay: .25s;
+      -ms-transition-delay: .25s;
+      -o-transition-delay: .25s;
       transition-delay: .25s;
     }
     .box:hover{
       cursor: pointer;
     }
     .box:hover .img1{
+      -webkit-transform: perspective(500px) rotateY(90deg);
+      -moz-transform: perspective(500px) rotateY(90deg);
+      -ms-transform: perspective(500px) rotateY(90deg);
+      -o-transform: perspective(500px) rotateY(90deg);
       transform: perspective(500px) rotateY(90deg);
+      -webkit-transition-delay: 0s;
+      -moz-transition-delay: 0s;
+      -ms-transition-delay: 0s;
+      -o-transition-delay: 0s;
       transition-delay: 0s;
 
     }
     .box:hover .img2{
+      -webkit-transform: perspective(500px) rotateY(0deg);
+      -moz-transform: perspective(500px) rotateY(0deg);
+      -ms-transform: perspective(500px) rotateY(0deg);
+      -o-transform: perspective(500px) rotateY(0deg);
       transform: perspective(500px) rotateY(0deg);
+      -webkit-transition-delay: .25s;
+      -moz-transition-delay: .25s;
+      -ms-transition-delay: .25s;
+      -o-transition-delay: .25s;
       transition-delay: .25s;
     }
   </style>
