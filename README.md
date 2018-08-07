@@ -323,3 +323,205 @@ transform: ;
 ```
 
 ## animation学习笔记
+2018-08-07
+
+### @keyframes规则 - 创建动画
+
+  from - to 等价于 0% - 100%
+  但是优先使用0% - 100%，因为浏览器兼容性还好点
+
+### animation 动画绑定
+
+  * 将keyframes动画规则绑定到选择器。
+
+  * 必须设定动画的名称和时长。
+
+  * 所有动画属性
+
+#### animation-name 
+keyframes动画的名称
+
+属性 | 含义 | 备注
+--- | ----- | ----
+动画名称 | 就是keyframes规定的动画名称 |　不设置动画不成功
+none | 设置后无动画效果 | 如果真的没有动画就不需要设置，但是这个功能的特殊用途用于覆盖级联的动画。
+
+#### animation-duration
+规定动画完成一个周期所花费的秒(.2s)、毫秒(200ms)
+#### animation-timing-function
+速度曲线(三次贝塞尔曲线)
+
+属性 | 含义 | 备注
+--- | ---- | ----
+linear | 匀速运动 | 
+ease | 慢 - 快 - 慢 |
+ease-in | 慢 - 快 |
+ease-out | 快 - 慢 | 
+ease-in-out | 慢 - ~ - 慢 |
+cubic-bezier |  自定义 | 上边这几个属性，都会在关键帧之间插入补间动画。使得动画效果连贯。
+**steps()函数** | 逐帧动画 | 适用于关键帧的跳跃
+
+针对上边五个三次贝塞尔，其对比效果看下边w3c的效果一目了然
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    div {
+      width: 100px;
+      height: 50px;
+      background: red;
+      color: white;
+      font-weight: bold;
+      position: relative;
+      animation: mymove 5s infinite;
+      -webkit-animation: mymove 5s infinite;
+      /* Safari and Chrome */
+    }
+
+    #div1 {
+      animation-timing-function: cubic-bezier(0, 0, 0.25, 1);
+    }
+
+    #div2 {
+      animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    #div3 {
+      animation-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    }
+
+    #div4 {
+      animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+    }
+
+    #div5 {
+      animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+
+    /* Safari and Chrome: */
+
+    #div1 {
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 1);
+    }
+
+    #div2 {
+      -webkit-animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    #div3 {
+      -webkit-animation-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    }
+
+    #div4 {
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+    }
+
+    #div5 {
+      -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+
+    @keyframes mymove {
+      from {
+        left: 0px;
+      }
+      to {
+        left: 300px;
+      }
+    }
+
+    @-webkit-keyframes mymove
+    /* Safari and Chrome */
+
+      {
+      from {
+        left: 0px;
+      }
+      to {
+        left: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <p>
+    <strong>注释：</strong>Internet Explorer 9 以及更早的版本不支持 animation-timing-function 属性。</p>
+
+  <div id="div1">linear</div>
+  <div id="div2">ease</div>
+  <div id="div3">ease-in</div>
+  <div id="div4">ease-out</div>
+  <div id="div5">ease-in-out</div>
+
+</body>
+
+</html>
+```
+
+特殊的 ```steps()函数```
+参数 | 含义 | 备注
+---- | ---- | ----
+正整数 | 指定时间函数中的间隔数量 | 必须是正整数
+start/end | 设置最后一步的状态 | start为结束时的状态（第一帧是第一步动画结束），end为开始时的状态(第一帧是第一步动画开始)
+
+定义steps的keyframes规则中，所有关键帧必须写出来，
+比如我下边这个demo中
+```css
+    @keyframes bgChange {
+      0% {
+        background-position-x: 0px;
+      }
+      20% {
+        background-position-x: -90px;
+      }
+      40% {
+        background-position-x: -181px;
+      }
+      60% {
+        background-position-x: -271px;
+      }
+      80% {
+        background-position-x: -359px;
+      }
+      100% {
+        background-position-x: -449px;
+      }
+    }
+```
+如果只改成from{} to{}两帧，动画跑不起来。同样的0% - 100% 也不可以。
+
+#### animation-delay 延迟动画
+  动画延迟开始时间
+#### animation-iteration-count: infinite；循环动画
+  动画播放次数
+
+* 常用 infinite
+
+#### animation-direction 反向动画
+  是否逆向播放
+属性 | 含义 
+---- | ----
+normal | 正常播放
+alternate | 反向
+
+alter： vt. 改变，更改
+#### animation-play-state 暂停动画
+  是否运行or暂停动画
+
+属性 | 含义
+---- | ----
+paused | 暂停
+running | 跑起来
+
+#### animation-fill-mode
+  动画时间之外的状态
+
+属性 | 含义　| 备注
+---- | ---- | ----
+none | 不改变默认行为 | 
+forwards | 动画完成后，保持最后一个属性值（在最后一个关键帧中定义） | 感觉就像定格最后一针的效果不变
+backwards | 延迟执行时间段内，动画开始前，应用开始属性值（在第一帧中定义） | 同上，只不过将变化的第一帧先定格展示出来
+both |　向前和向后填充模式都被应用。　| 上边两个结合应用，开始前将第一帧先展示，结束后最后一帧定格不变。

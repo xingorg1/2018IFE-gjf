@@ -1,0 +1,82 @@
+/* 
+* author：guojufeng@
+* time: 2018-08-07
+*/
+body{
+  padding-top: 170px;
+}
+.wrapper{
+  
+  /* 整体透视 */
+  perspective: 600px;
+  /* 整体透视基点 */
+  perspective-origin: 50% 220px; 
+  /* 整体缩放 */
+  transform: scale(0.6);
+  /* 整体投影 */
+  -webkit-box-reflect: below 40px -webkit-gradient(linear, left top, left bottom, from(transparent),color-stop(0%,transparent),to(rgba(250,250,250,.1)));
+}
+.cude{
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+  /* 旋转-方便调试和观看立体3d效果 */
+  /* transform: rotateX(0deg) rotateY(0deg); */
+  /* 规定子元素也要是3d展示 */
+  transform-style: preserve-3d;
+  /* transition: transform 5s linear; */
+  /* animation: rotate 3s linear infinite paused; */
+  animation-name: rotate;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+@keyframes rotate{
+  from{
+    transform: rotateY(0deg);
+  }
+  to{
+    transform: rotateY(-450deg);
+  } 
+}
+.wrapper:hover .cude{
+  cursor: pointer;
+  animation-play-state: running;
+}
+.cude-box{
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  padding-top: 200px;
+  /* line-height: 400px; */
+  text-align: center;
+  color: #4b9bff;
+  font-size: 15px;
+  background: rgba(0, 84, 156, 0.55);
+  border: 4px solid;
+  opacity: 0.7;
+}
+.cude-box:first-child{
+  transform: rotateX(90deg) translateZ(200px);
+}
+.cude-box:nth-child(2){
+  transform: translateZ(200px);
+}
+/* 下边的345都是先初始化到2的位置，再y轴旋转到对应的位置 */
+.cude-box:nth-child(3){
+  transform: rotateY(90deg) translateZ(200px);
+}
+.cude-box:nth-child(4){
+  /* padding-top: 150px; */
+  transform: rotateY(180deg) translateZ(200px);
+}
+.cude-box:nth-child(5){
+  /* padding-top: 150px; */
+  transform: rotateY(-90deg) translateZ(200px);
+}
+.cude-box:last-child{
+  /* padding-top: 150px; */
+  transform: rotateX(-90deg) translateZ(200px);
+}
