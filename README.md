@@ -187,6 +187,16 @@ js写法：
 默认不设置的情况下，x轴坐标是(border-width + padding + width) / 2 + 'px'，第二个坐标是(border-width + padding +height) / 2 + 'px';
 ### transform-style 被嵌套元素在3D空间如何显示
 
+  * 规定被嵌套元素如何在3D空间中显示：
+
+    * flat：表示子元素不保留3d位置、
+
+    * preserve-3d表示 子元素保留3d位置
+
+  * 属性值： flat、preserve-3d、unset、inherit、initial
+
+  * 需要与transform一同使用。
+  
 ### transform的各个方法属性
 
 name | 含义 
@@ -262,10 +272,32 @@ D | name | 含义 | 中心点 | 备注
 3D | matrix(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) | 矩阵，模型 | 同上 | 16个值,4x4矩阵
 
 ### perspective 规定3D元素的透视效果
-https://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/comment-page-7/#comment-385481
+[张鑫旭讲解文章](https://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/comment-page-7/#comment-385481)
+
 **perspective(n) 为3D转换元素设置透视视图** 
+
+  * 规定3D元素的透视效果
+
+  * 目前浏览器都不支持，只有safari和chrome用替代元素-webkit-perspective
+
+  * 只影响有3d转换属性的子元素，是加在父元素身上的。
+
+  * 需要配合perspective-origin一同使用。
+
 **perspective-origin 规定3D元素的底部位置** 
+
+  * 规定3D元素的底部位置 ？？
+
+  * 大致属性同perspective
+
+  * perspective-origin : 50% 200px; 为什么第一个是百分比，第二个是像素值？可以有的值或格式：top,bottom,center,length,%。
+
+  * x-axis 定义该视图在x轴上的位置、
+  * y-axis 定义该视图在y轴上的位置
+
 **perspective-visibility 定义元素在不面对屏幕时是否可见** 
+
+
 ### 混合写法
 多个属性值之间用逗号隔开即可。
 ```css
