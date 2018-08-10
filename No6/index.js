@@ -22,10 +22,12 @@ window.onload = function(){
       for (let j = 0; j < littleImg.length; j++) {
         littleImg[j].className = 'little';
         // bigImg[j].style.display = 'none';
+        // bigImg[j].style.zIndex --;
         bigImg[j].className = 'big';
       }
       this.className = 'little active';
       // bigImg[this.indexs].style.display = 'block';
+      // bigImg[this.indexs].style.zIndex ++;
       bigImg[this.indexs].className = 'big ani ani'+ (this.indexs+1);
     }
   }
