@@ -167,7 +167,7 @@ object.style.transitionDelay="2s"
 
 ## transform学习笔记
 20180731
-### transform理解
+### transform转换
 
 **transform转换**  属于2D/3D上的转换、变形效果。他不是一个动画，他就是变形。比如正方形变平行四边形，再变圆形。都是形状变成另一个形状。
 
@@ -250,6 +250,7 @@ D | name | 含义 | 中心点 | 备注
 3D | rotateY(angle) | N°旋转 | 同上 | 围绕y轴做垂直方向翻转
 3D | rotateZ(angle) | N°旋转 | 同上 | 
 
+**发现rotate对于inline元素不起作用**
 **translate(x,y)：相对于当前位置向水平(x)/垂直(y)方向移动，正值向右/下，负值向左/上**
 
 D | name | 含义 | 中心点 | 备注
